@@ -1,0 +1,5 @@
+query getProduct($slug: ID!) {
+  product(id: $slug, idType: SLUG) {
+    name
+  }
+}
