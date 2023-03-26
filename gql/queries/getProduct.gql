@@ -1,5 +1,5 @@
-query getProduct($slug: ID!) {
-  product(id: $slug, idType: SLUG) {
+query getProduct {
+  product(id: "patterned-wrap-skirt", idType: SLUG) {
     name
   }
 }

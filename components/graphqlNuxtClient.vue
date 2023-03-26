@@ -5,8 +5,7 @@
 </template>
 
 <script setup>
-const { data } = await useAsyncGql('getProduct', { 
-  slug: 'patterned-wrap-skirt'
-});
+const { data } = await useAsyncGql('getProduct')
+
 const product = data.value.product;
 </script>
