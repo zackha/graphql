@@ -1,11 +1,9 @@
 <template>
   <div>
-    // Nuxt Graphq Client {{ product }}
+    // Nuxt Graphq Client {{ reviews }}
   </div>
 </template>
 
 <script setup>
-const { data } = await useAsyncGql('getProduct')
-
-const product = data.value.product;
+defineProps({reviews: { type: Object, default: null }});
 </script>
