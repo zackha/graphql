@@ -1,6 +1,6 @@
 <template>
   <div>
-    // Nuxt Graphq Client {{ reviews }}
+    {{ reviews }}
   </div>
 </template>
 
