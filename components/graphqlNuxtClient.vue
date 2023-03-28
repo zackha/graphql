@@ -53,7 +53,7 @@ const newComment = ref({
   commentOn: 97,
   author: '',
   content: '',
-  rating: 5,
+  rating: 0,
   authorEmail: '',
 });
 
