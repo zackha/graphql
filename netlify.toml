@@ -3,7 +3,7 @@
   NUXT_IMAGE_DOMAINS = "rays.terodon.com"
 
 [build]
-  command = "npm run generate"
+  command = "npm run build"
 
 [[headers]]
   for = "/*.js"
