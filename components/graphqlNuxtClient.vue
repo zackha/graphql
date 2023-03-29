@@ -1,16 +1,25 @@
 <template>
   <div class="reviews">
     <div class="comments">
-      <div>Avarege: {{ reviews.averageRating }}</div>
-      <div v-for="review in reviews.edges" :key="review.id">
-        <div>
-          <img v-if="review.node.author.node.avatar" :src="review.node.author.node.avatar.url" />
-          <span>{{ review.node.author.node.name }}</span>
-          <span>{{ review.node.date }}</span>
-          <span>---{{ review.rating }}</span>
-        </div>
-        <div v-html="review.node.content"></div>
-      </div>
+      <table>
+        <tr>
+          <th colspan="5">Avarege: {{ reviews.averageRating }}</th>
+        </tr>
+        <tr>
+          <th>Avatar</th>
+          <th>Author</th>
+          <th>Date</th>
+          <th>Rate</th>
+          <th>Review</th>
+        </tr>
+        <tr v-for="review in reviews.edges" :key="review.id">
+          <td style="text-align: center"><img v-if="review.node.author.node.avatar" :src="review.node.author.node.avatar.url" /></td>
+          <td>{{ review.node.author.node.name }}</td>
+          <td>{{ review.node.date }}</td>
+          <td style="text-align: center">{{ review.rating }}</td>
+          <td v-html="review.node.content"></td>
+        </tr>
+      </table>
     </div>
     <div class="form">
       <form @submit.prevent="addComment">
@@ -78,5 +87,24 @@ async function addComment() {
   order: 2;
   max-width: 49%;
   flex: 1 1 100%;
+}
+img {
+  width: 17px;
+  height: 17px;
+}
+table {
+  font-family: monospace;
+  border-collapse: collapse;
+  border: 1px dashed #333;
+}
+th {
+  padding: 5px 7px;
+}
+td {
+  padding: 0px 7px;
+}
+th {
+  text-align: left;
+  border-bottom: 1px dashed #333;
 }
 </style>
