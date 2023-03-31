@@ -1,7 +1,8 @@
 export default defineNuxtConfig({
   modules: [
     'nuxt-graphql-client',
-    '@nuxtjs/apollo'
+    '@nuxtjs/apollo',
+    'nuxt-icon'
   ],
   apollo: {
     clients: {

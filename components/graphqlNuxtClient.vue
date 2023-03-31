@@ -25,9 +25,16 @@
       <form @submit.prevent="addComment">
         <div>
           <label for="rating">Rating:</label>
-          <select id="rating" v-model="rating" required>
-            <option v-for="rating in 5" :key="rating" :value="rating">{{ rating }}</option>
-          </select>
+          <Icon 
+            v-for="i in 5" 
+            :key="i" 
+            name="ion:star" 
+            @click="setRating(i)"
+            @mouseover="setHovered(i)"
+            @mouseout="resetHovered"
+            :size="size + ''" 
+            :class="(rating < i && i > hovered) ? 'disable-star' : 'checked-star'"
+          />
         </div>
         <br>
         <div>
@@ -48,12 +55,26 @@
 
 <script setup>
 const props = defineProps({
-  reviews: Object
+  reviews: Object,
+  size: { type: Number, default: 24 }
 })
 
+const hovered = ref(0);
 const rating = ref(null)
 const content = ref(null)
 const authorEmail = ref(null)
+
+function setRating(i) {
+  rating.value = i;
+}
+
+function setHovered(i) {
+  hovered.value = i;
+}
+
+function resetHovered() {
+  hovered.value = 0;
+}
 
 async function addComment() {
   const variables = {
@@ -106,5 +127,14 @@ td {
 th {
   text-align: left;
   border-bottom: 1px dashed #333;
+}
+.disable-star {
+  transition: 0.15s ease-in-out;
+  color: #ccc;
+}
+.checked-star {
+  transition: 0.15s ease-in-out;
+  color: #F9BF3B;
+	filter: drop-shadow(0 0 2px #F9BF3B);
 }
 </style>
