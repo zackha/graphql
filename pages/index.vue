@@ -1,6 +1,6 @@
 <template>
   <div>
-    <GraphqlNuxtClient v-if="averageRating > 0" :reviews="reviews" />
+    <GraphqlNuxtClient v-if="averageRating > 0" :reviews="reviews" :productId="product.databaseId" />
   </div>
 </template>
 
